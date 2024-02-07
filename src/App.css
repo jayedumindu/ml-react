@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+.app {
+  display: flex;
+  height: 100vh;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: linear-gradient(to right, #986363, #B0B0B0);
+}
+
+.appHeader {
+  text-align: center;
+  flex: 0 0 100%;
+}
+
+.chart {
+  flex-basis: 80%;
+}
+
+.orderInfo {
+  flex-basis: 80%;
+  text-align: center;
+}
