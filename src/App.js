@@ -40,16 +40,23 @@ const BinanceCandlestickApp = () => {
   const fetchPrediction = async () => {
     try {
       const response = await axios.post(
-        'http://16.171.39.236/predict'
+        'http://16.171.39.236/predict',
+        {},
+        {
+          headers: {
+            'Origin': '*',
+          },
+        }
       );
       console.log(response);
-      let prediction = response.data.prediction
-      setValue(prediction)
-      console.log(`prediciton ${prediction}`);
+      let prediction = response.data.prediction;
+      setValue(prediction);
+      console.log(`prediction ${prediction}`);
     } catch (error) {
       console.error('Error fetching prediction:', error);
     }
-  }
+  };
+
 
   useEffect(() => {
     fetchData(); // Initial fetch
