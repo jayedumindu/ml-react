@@ -40,7 +40,14 @@ const BinanceCandlestickApp = () => {
   const fetchPrediction = async () => {
     try {
       const response = await axios.post(
-        'http://16.171.39.236/predict'
+        'http://16.171.39.236:8000/predict',
+        // {},
+        // {
+        //   headers: {
+        //     'Content-Type': 'application/json'
+        //   },
+        //   withCredentials: false
+        // }
       );
       console.log(response);
       let prediction = response.data.prediction;
