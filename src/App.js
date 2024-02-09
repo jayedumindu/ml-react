@@ -7,6 +7,10 @@ const BinanceCandlestickApp = () => {
   const [candlestickData, setCandlestickData] = useState([]);
   const [value, setValue] = useState('');
 
+  const agent = new https.Agent({
+    rejectUnauthorized: false
+  });
+
   const fetchData = async () => {
     try {
 
@@ -40,7 +44,9 @@ const BinanceCandlestickApp = () => {
   const fetchPrediction = async () => {
     try {
       const response = await axios.post(
-        'https://16.171.39.236/predict'
+        'https://16.171.39.236/predict',
+        {},
+        { httpsAgent: agent }
       );
       console.log(response);
       let prediction = response.data.prediction;
