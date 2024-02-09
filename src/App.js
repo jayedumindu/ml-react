@@ -3,13 +3,10 @@ import axios from 'axios';
 import CustomCandlestickChart from './CandleStickChart';
 import './App.css'
 
+
 const BinanceCandlestickApp = () => {
   const [candlestickData, setCandlestickData] = useState([]);
   const [value, setValue] = useState('');
-
-  const agent = new https.Agent({
-    rejectUnauthorized: false
-  });
 
   const fetchData = async () => {
     try {
@@ -46,7 +43,11 @@ const BinanceCandlestickApp = () => {
       const response = await axios.post(
         'https://16.171.39.236/predict',
         {},
-        { httpsAgent: agent }
+        {
+          httpsAgent: {
+            rejectUnauthorized: false,
+          },
+        }
       );
       console.log(response);
       let prediction = response.data.prediction;
