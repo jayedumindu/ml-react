@@ -54,6 +54,7 @@ const BinanceCandlestickApp = () => {
 
   useEffect(() => {
     fetchData(); // Initial fetch
+    fetchPrediction();
 
     const intervalId = setInterval(() => {
       fetchData();
